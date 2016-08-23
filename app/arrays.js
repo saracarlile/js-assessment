@@ -3,71 +3,71 @@
 exports = typeof window === 'undefined' ? global : window;
 
 exports.arraysAnswers = {
-  indexOf: function(arr, item) {
-      return arr.indexOf(item);
+  indexOf: function (arr, item) {
+    return arr.indexOf(item);
   },
 
-  sum: function(arr) {
+  sum: function (arr) {
     var l = 0;
     var count = 0;
-    while (l < arr.length){
+    while (l < arr.length) {
       count = count + arr[l];
       l += 1;
     }
     return count;
   },
 
-  remove: function(arr, item) {
-    for(var i= arr.length; i--;){
-    if(arr[i] === item){
-      arr.splice(i, 1);
+  remove: function (arr, item) {
+    for (var i = arr.length; i--;) {
+      if (arr[i] === item) {
+        arr.splice(i, 1);
+      }
     }
-  }
-  return arr;
+    return arr;
   },
 
-  removeWithoutCopy: function(arr, item) {
-      for(var i= arr.length; i--;){
-    if(arr[i] === item){
-      arr.splice(i, 1);
+  removeWithoutCopy: function (arr, item) {
+    for (var i = arr.length; i--;) {
+      if (arr[i] === item) {
+        arr.splice(i, 1);
+      }
     }
-  }
-  return arr;
+    return arr;
   },
 
-  append: function(arr, item) {
-      arr.push(item);
-      return arr;
+  append: function (arr, item) {
+    arr.push(item);
+    return arr;
   },
 
-  truncate: function(arr) {
-      arr.pop();
-      return arr;
+  truncate: function (arr) {
+    arr.pop();
+    return arr;
   },
 
-  prepend: function(arr, item) {
+  prepend: function (arr, item) {
     arr.splice(0, 0, item);
     return arr;
   },
 
-  curtail: function(arr) {
+  curtail: function (arr) {
     arr.splice(0, 1);
     return arr;
   },
 
-  concat: function(arr1, arr2) {
+  concat: function (arr1, arr2) {
     var temp = arr1.concat(arr2);
     return temp;
   },
 
-  insert: function(arr, item, index) {
+  insert: function (arr, item, index) {
     arr.splice(index, 0, item);
     return arr;
   },
 
-  count: function(arr, item) {
+  count: function (arr, item) {
     var count = 0;
-    for(var i=0; i < arr.length; i++){
+    for (var i = 0; i < arr.length; i++) {
       if (arr[i] === item)
         count += 1;
     }
@@ -82,21 +82,28 @@ exports.arraysAnswers = {
       if (!temp.includes(c)) {
         temp.push(c);
       }
-      else if (!result.includes(c)){
+      else if (!result.includes(c)) {
         result.push(c);
       }
     }
     return result;
   },
 
-  square: function(arr) {
-    var s = arr.map(function(num) {
-    return num * num;
-  });
-  return s;
+  square: function (arr) {
+    var s = arr.map(function (num) {
+      return num * num;
+    });
+    return s;
   },
 
-  findAllOccurrences: function(arr, target) {
-
+  findAllOccurrences: function (arr, target) {
+    var temp = [];
+    for (var i = 0; i < arr.length; i++) {
+      var s = arr.indexOf(target, i);
+      if ((arr.indexOf(target, i) !== -1) && (!temp.includes(s))) {
+        temp.push(s);
+      }
+    }
+    return temp;
   }
 };
